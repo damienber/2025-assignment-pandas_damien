@@ -20,7 +20,6 @@ def load_data():
     return referendum, regions, departments
 
 
-
 def merge_regions_and_departments(regions, departments):
     """Merge regions and departments in one DataFrame."""
     merged = pd.merge(
