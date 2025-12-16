@@ -16,15 +16,9 @@ from polars import first
 
 def load_data():
     """Load data from the CSV files referundum/regions/departments."""
-    referendum = pd.DataFrame({})
-    regions = pd.DataFrame({})
-    departments = pd.DataFrame({})
-    loaded_referendum = pd.read_csv('referendum.csv', dtype={'department_code': str})
-    loaded_regions = pd.read_csv('regions.csv', dtype={'code': str})
-    loaded_departments = pd.read_csv('departments.csv', dtype={'code': str, 'region_code': str})
-    referendum = loaded_referendum
-    regions = loaded_regions
-    departments = loaded_departments    
+    referendum = pd.DataFrame({pd.read_csv('referendum.csv', dtype={'department_code': str})})
+    regions = pd.DataFrame({pd.read_csv('regions.csv', dtype={'code': str})})
+    departments = pd.DataFrame({pd.read_csv('departments.csv', dtype={'code': str, 'region_code': str})})
     return referendum, regions, departments
 
 
