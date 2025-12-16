@@ -19,7 +19,6 @@ def load_data():
     referendum = pd.read_csv('data/referendum.csv', sep=';')
     regions = pd.read_csv('data/regions.csv')
     departments = pd.read_csv('data/departments.csv')
-
     return referendum, regions, departments
 
 
@@ -29,13 +28,11 @@ def merge_regions_and_departments(regions, departments):
         'code': 'code_reg',
         'name': 'name_reg'
     })
-
     departments = departments.rename(columns={
         'region_code': 'code_reg',
         'code': 'code_dep',
         'name': 'name_dep'
     })
-
     merged = pd.merge(regions, departments, on='code_reg')
 
     return merged[['code_reg', 'name_reg', 'code_dep', 'name_dep']]
@@ -68,7 +65,6 @@ def merge_referendum_and_areas(referendum, regions_and_departments):
     )
 
     return merged
-
 
 
 def compute_referendum_result_by_regions(referendum_and_areas):
