@@ -7,16 +7,22 @@ def load_data():
     """Load data from the CSV files."""
     referendum = pd.read_csv(
         'data/referendum.csv',
+        sep=';',
         dtype={'department_code': str}
     )
+
     regions = pd.read_csv(
         'data/regions.csv',
+        sep=';',
         dtype={'code': str}
     )
+
     departments = pd.read_csv(
         'data/departments.csv',
+        sep=';',
         dtype={'code': str, 'region_code': str}
     )
+
     return referendum, regions, departments
 
 
